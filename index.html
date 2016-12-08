@@ -44,15 +44,12 @@
 				function displayanimalInfo() {
 
 					var animal = $(this).data("name");
-					console.log(animal);
 
 					var queryURL = "http://api.giphy.com/v1/gifs/search?q=" + animal + "&api_key=dc6zaTOxFJmzC&limit=10";
-					console.log(queryURL);
 
 					// Creating an AJAX call for the specific animal button being clicked
 					$.ajax({ url: queryURL, method: "GET" }).done(function(response) {
 
-						console.log(response);
 						for (var i = 0; i < response.data.length; i++) {
 
 							// Creating a div to hold the animal
@@ -64,10 +61,8 @@
 							// Creating an element to have the rating displayed
 							var pOne = $("<p>").text("Rating: " + rating);
 
-
 							// Retrieving the URL for the image
 							var imgURL = response.data[i].images.fixed_height.url;
-							console.log(imgURL);
 
 							// Creating an element to hold the image
 							var image = $("<img>").attr("src", imgURL);
@@ -79,7 +74,6 @@
 							// Putting the entire animal above the previous animals
 							$("#animals-view").prepend(animalDiv);
 							$("#animals-view").prepend(pOne);
-							console.log("adding this");
 						}
 					});
 
@@ -132,24 +126,6 @@
 				// Calling the renderButtons function to display the intial buttons
 				renderButtons();
 
-
-				// This function handles events where a animal button is clicked 
-				$(".animal").on("click", function() {
-					
-			      // The attr jQuery method allows us to get or set the value of any attribute on our HTML element
-			      var state = $(this).attr("data-state");
-
-			      if (state === "still") {
-			        $(this).attr("src", $(this).data("animate"));
-			        $(this).attr("data-state", "animate");
-			      }
-			      else {
-			        // If the clicked image's state is still, update its src attribute to what its data-animate value is.
-			        // Then, set the image's data-state to animate
-			        $(this).attr("src", $(this).data("still"));
-			        $(this).attr("data-state", "still");
-			      }
-			    });
 			</script>
     </div>
   </body>
