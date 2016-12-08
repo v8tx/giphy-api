@@ -7,8 +7,26 @@ body {
 h1 {
 	font-weight: bold;
 	margin: 30px 0;
+	text-align: center;
 }
 p {
-	line-height: 215%			
+	line-height: 215%;
+	font-weight: bold;			
+}
+button.animal, input#add-animal {
+	margin-right: 10px;
+	border-radius: 4px;
+	background: #4734FF;
+	border: none;
+	color: #fff;
+}
+input#add-animal {
+	margin: 10px 0 0 0;
+}
+#animals-view {
+	margin: 20px 0;
+}
+.animal {
+	margin-bottom: 20px;
 }
 
